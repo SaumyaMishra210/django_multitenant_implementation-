@@ -130,7 +130,7 @@ python manage.py runserver
 By default, it runs on `http://127.0.0.1:8000/`.
 
 Access tenants by visiting:
-- **Public**: http://example.com
+- **Public**: http://127.0.0.1:8000/
 - **Tenant 1**: http://tenant1.example.com
 - **Tenant 2**: http://tenant2.example.com
 
@@ -138,32 +138,34 @@ Use **hosts file** or a custom local DNS resolver to map domains.
 
 ---
 
-## Authentication (JWT)
-### 1. Obtain Access & Refresh Tokens (Login)
-```bash
-POST /api/token/
+## Authentication Endpoints (JWT)
+
+### 8. API Endpoints for Authentication
+| Endpoint            | Method | Description |
+|---------------------|--------|-------------|
+| `/auth/login/`      | `POST` | Login and get JWT tokens |
+| `/auth/signup/`     | `POST` | Register a new user |
+| `/auth/logout/`     | `POST` | Logout and blacklist refresh token |
+| `/auth/token/refresh/` | `POST` | Get new access token using refresh token |
+
+#### Example Login Request
+```sh
+POST /auth/login/
 {
-    "username": "your_username",
-    "password": "your_password"
+    "username": "testuser",
+    "password": "testpass"
 }
 ```
-### 2. Refresh Access Token
-```bash
-POST /api/token/refresh/
-{
-    "refresh": "your_refresh_token"
-}
-```
-### 3. Logout (Blacklist Token)
-```bash
-POST /api/logout/
+
+#### Example Logout Request
+```sh
+POST /auth/logout/
 {
     "refresh": "your_refresh_token"
 }
 ```
 
 ---
-
 ## API Endpoints
 
 ### **Author Endpoints**
