@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "rest_framework",
     'rest_framework_simplejwt',
-    # 'rest_framework_simplejwt.token_blacklist',
+    'rest_framework_simplejwt.token_blacklist',
 
     "tenants",  # Your tenants app
     "app1",  # Your application
@@ -125,7 +125,7 @@ WSGI_APPLICATION = "project_multitenant.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django_tenants.postgresql_backend',
-        'NAME': 'multi_tenant_db',
+        'NAME': "db1",    #'multi_tenant_db',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',

@@ -3,8 +3,8 @@ from .views import CustomTokenObtainPairView, signup, logout
 from rest_framework_simplejwt.views import TokenRefreshView
 
 urlpatterns = [
-    path('auth/login/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('auth/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('auth/signup/', signup, name='signup'),
-    path('auth/logout/', logout, name='logout'),
+    path('login/', CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('signup/', signup, name='signup'),
+    path('logout/', logout, name='logout'),
 ]
